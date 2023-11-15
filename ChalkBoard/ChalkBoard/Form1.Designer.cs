@@ -35,6 +35,7 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             LoginButton = new Button();
+            ExitButton = new Button();
             SuspendLayout();
             // 
             // Title
@@ -101,10 +102,22 @@
             LoginButton.Font = new Font("Elephant", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             LoginButton.Location = new Point(538, 388);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(94, 33);
+            LoginButton.Size = new Size(101, 39);
             LoginButton.TabIndex = 6;
             LoginButton.Text = "Login";
             LoginButton.UseVisualStyleBackColor = false;
+            // 
+            // ExitButton
+            // 
+            ExitButton.BackColor = SystemColors.ActiveCaption;
+            ExitButton.Font = new Font("Elephant", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            ExitButton.ForeColor = Color.Maroon;
+            ExitButton.Location = new Point(407, 436);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(111, 50);
+            ExitButton.TabIndex = 7;
+            ExitButton.Text = "Exit";
+            ExitButton.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -112,6 +125,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(894, 539);
+            Controls.Add(ExitButton);
             Controls.Add(LoginButton);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -135,5 +149,6 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Button LoginButton;
+        private Button ExitButton;
     }
 }
