@@ -32,8 +32,8 @@
             heading1 = new Label();
             UserNameLabel = new Label();
             PasswordLabel = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            UserNameTextBox = new TextBox();
+            PasswordTextBox = new TextBox();
             LoginButton = new Button();
             ExitButton = new Button();
             SuspendLayout();
@@ -48,7 +48,6 @@
             Title.TabIndex = 0;
             Title.Text = "Chalkboard";
             Title.TextAlign = ContentAlignment.TopCenter;
-            Title.Click += label1_Click;
             // 
             // heading1
             // 
@@ -80,21 +79,21 @@
             PasswordLabel.TabIndex = 3;
             PasswordLabel.Text = "Password";
             // 
-            // textBox1
+            // UserNameTextBox
             // 
-            textBox1.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(306, 255);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(380, 31);
-            textBox1.TabIndex = 4;
+            UserNameTextBox.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            UserNameTextBox.Location = new Point(306, 255);
+            UserNameTextBox.Name = "UserNameTextBox";
+            UserNameTextBox.Size = new Size(380, 31);
+            UserNameTextBox.TabIndex = 4;
             // 
-            // textBox2
+            // PasswordTextBox
             // 
-            textBox2.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(306, 328);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(380, 31);
-            textBox2.TabIndex = 5;
+            PasswordTextBox.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            PasswordTextBox.Location = new Point(306, 328);
+            PasswordTextBox.Name = "PasswordTextBox";
+            PasswordTextBox.Size = new Size(380, 31);
+            PasswordTextBox.TabIndex = 5;
             // 
             // LoginButton
             // 
@@ -106,6 +105,7 @@
             LoginButton.TabIndex = 6;
             LoginButton.Text = "Login";
             LoginButton.UseVisualStyleBackColor = false;
+            LoginButton.Click += LoginButton_Click;
             // 
             // ExitButton
             // 
@@ -127,8 +127,8 @@
             ClientSize = new Size(894, 539);
             Controls.Add(ExitButton);
             Controls.Add(LoginButton);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(PasswordTextBox);
+            Controls.Add(UserNameTextBox);
             Controls.Add(PasswordLabel);
             Controls.Add(UserNameLabel);
             Controls.Add(heading1);
@@ -136,6 +136,7 @@
             ForeColor = SystemColors.Info;
             Name = "Form1";
             Text = "Chalkboard";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -146,8 +147,8 @@
         private Label heading1;
         private Label UserNameLabel;
         private Label PasswordLabel;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox UserNameTextBox;
+        private TextBox PasswordTextBox;
         private Button LoginButton;
         private Button ExitButton;
     }
