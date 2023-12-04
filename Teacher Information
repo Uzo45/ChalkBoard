@@ -1,1 +1,49 @@
+using System;
+using System.Data.SqlClient;
 
+class Program
+{
+    static void Main()
+    {
+        // Connection string - Update it with your database connection details
+        string connectionString = "Data Source=YourServer;Initial Catalog=YourDatabase;User ID=YourUsername;Password=YourPassword";
+
+        // SQL query to retrieve teacher information
+        string query = "SELECT * FROM Teachers";
+
+        // Create a SqlConnection using the connection string
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            // Open the connection
+            connection.Open();
+
+            // Create a SqlCommand with the query and connection
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                // Execute the query and retrieve the data using a SqlDataReader
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    // Check if there are rows returned
+                    if (reader.HasRows)
+                    {
+                        // Iterate through the rows and display teacher information
+                        while (reader.Read())
+                        {
+                            // Assuming the database has columns like TeacherID, Name, Subject, etc.
+                            int teacherID = reader.GetInt32(reader.GetOrdinal("TeacherID"));
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+                            string subject = reader.GetString(reader.GetOrdinal("Subject"));
+
+                            // Display the information (you can replace Console.WriteLine with your UI code)
+                            Console.WriteLine($"Teacher ID: {teacherID}, Name: {name}, Subject: {subject}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No teacher information found.");
+                    }
+                }
+            }
+        }
+    }
+}
