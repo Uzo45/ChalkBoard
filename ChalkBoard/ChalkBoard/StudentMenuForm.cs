@@ -72,12 +72,24 @@ namespace ChalkBoard
             MajorText.Visible = show;
             ClassText.Visible = show;
             EmailText.Visible = show;
-            
         }
 
         private void LoginOff_Click(object sender, EventArgs e)
         {
+            DialogResult res;
+            res = MessageBox.Show("Are you sure you want to log off", "Logging off", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                UserType userType = new UserType();
 
+                this.Hide();
+                userType.Show();
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
         }
 
         private void Backbutton_Click(object sender, EventArgs e)
