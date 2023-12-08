@@ -18,13 +18,72 @@ namespace ChalkBoard
         public StudentMenuForm()
         {
             InitializeComponent();
-            dataTable = Info.studentDatatable;
+            ShowButtons(true);
+            dataTable = Info.datatable;
             row = dataTable.Rows[0];
+            ProfileReady();
+        }
+
+        private void ShowButtons(bool show)
+        {
+            WelcomeText.Visible = show;
+            ProfileButton.Enabled = show;
+            ProfileButton.Visible = show;
+            ShowGradeButton.Enabled = show;
+            ShowGradeButton.Visible = show;
+            AdvisorButton.Enabled = show;
+            AdvisorButton.Visible = show;
+            Backbutton.Visible = !show;
+            Backbutton.Enabled = !show;
         }
 
         private void StudentMenuForm_Load(object sender, EventArgs e)
         {
             WelcomeText.Text = "Welcome, " + row["First Name"] + " " + row["Last Name"];
+        }
+
+        private void ProfileButton_Click(object sender, EventArgs e)
+        {
+            ShowButtons(false);
+            ProfileShow(true);
+        }
+
+        private void ProfileReady()
+        {
+            FnameText.Text += row["First Name"];
+            LnameText.Text += row["Last Name"]; 
+            MajorText.Text += row["Major"]; 
+            ClassText.Text += row["Classification"]; 
+            EmailText.Text += row["Email"];
+
+            //FnameText.ForeColor = Color.Yellow;
+            //LnameText.ForeColor = Color.Yellow;
+            //MajorText.ForeColor = Color.Yellow;
+            //ClassText.ForeColor = Color.Yellow;
+            //EmailText.ForeColor = Color.Yellow;
+        }
+
+        private void ProfileShow(bool show)
+        {
+            CoverPanel.Visible = show;
+            ProfileTitle.Visible = show;
+            FnameText.Visible = show;
+            LnameText.Visible = show;
+            MajorText.Visible = show;
+            ClassText.Visible = show;
+            EmailText.Visible = show;
+            
+        }
+
+        private void LoginOff_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Backbutton_Click(object sender, EventArgs e)
+        {
+            ShowButtons(true);
+            ProfileShow(false);
         }
     }
 }

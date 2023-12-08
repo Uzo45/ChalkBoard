@@ -13,37 +13,37 @@ namespace ChalkBoard
     public partial class UserType : Form
     {
         Login login;
+        public UserType userType;
 
         public UserType()
         {
             InitializeComponent();
+            login = new Login();
+            userType = this;
         }
 
         private void StudentLoginButton_Click(object sender, EventArgs e)
         {
-            login = new Login();
             login.person = SchoolPerson.Student;
             login.Show();
             this.Hide();
-            this.Close();
+            //this.Close();
         }
 
         private void TeacherLoginButton_Click(object sender, EventArgs e)
         {
-            login = new Login();
             login.person = SchoolPerson.Teacher;
             login.Show();
             this.Hide();
-            this.Close();
+            //this.Close();
         }
 
         private void AdvisorLoginButton_Click(object sender, EventArgs e)
         {
-            login = new Login();
             login.person = SchoolPerson.Advisor;
             login.Show();
             this.Hide();
-            this.Close();
+            //this.Close();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

@@ -15,26 +15,49 @@ namespace ChalkBoard
 {
     public partial class Login : Form
     {
-        OleDbConnection dbConnection = new OleDbConnection();
+        OleDbConnection dbConnection;
         public SchoolPerson person;
+        UserType userType;
 
         public Login()
         {
             InitializeComponent();
-            //Info.studentDatatable.Clear();
-            //Info.teacherDatatable.Clear();
-            //Info.advisorDatatable.Clear();
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //dbConnection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\School\\Chalkboard\\ChalkBoardDatabase.accdb";
-            //dbConnection.Open();
+            dbConnection = Info.dbConnection;
+
+            switch (person)
+            {
+                case SchoolPerson.Student:
+                    heading1.Text = "Student Login";
+                    break;
+                case SchoolPerson.Teacher:
+                    heading1.Text = "Teacher Login";
+                    break;
+                case SchoolPerson.Advisor:
+                    heading1.Text = "Advisor Login";
+                    break;
+                default:
+                    MessageBox.Show("How did you get here?", "Error");
+                    userType = new UserType();
+                    this.Hide();
+                    userType.Show();
+                    this.Close();
+                    break;
+            }
+
+            UserNameTextBox.Clear();
+            PasswordTextBox.Clear();
+
+            //to focus
+            UserNameTextBox.Focus();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            switch(person)
+            switch (person)
             {
                 case SchoolPerson.Student:
                     LoginFunction("Student");
@@ -47,6 +70,10 @@ namespace ChalkBoard
                     break;
                 default:
                     MessageBox.Show("How did you get here?", "Error");
+                    userType = new UserType();
+                    this.Hide();
+                    userType.Show();
+                    this.Close();
                     break;
             }
         }
@@ -71,25 +98,25 @@ namespace ChalkBoard
                 if (dataTable.Rows.Count > 0)
                 {
                     //page that needs to be loaded next
-                    if(table.Equals("Student"))
+                    if (table.Equals("Student"))
                     {
                         //make the information from the database public
-                        Info.studentDatatable = dataTable;
+                        Info.datatable = dataTable;
 
                         StudentMenuForm menuForm = new StudentMenuForm();
                         menuForm.Show();
                         this.Hide();
                     }
-                    else if(table.Equals("Teacher"))
+                    else if (table.Equals("Teacher"))
                     {
                         //make the information from the database public
-                        Info.studentDatatable = dataTable;
+                        Info.datatable = dataTable;
 
                         //StudentMenuForm menuForm = new StudentMenuForm();
                         //menuForm.Show();
                         //this.Hide();
                     }
-                    else if(table.Equals("Advisor"))
+                    else if (table.Equals("Advisor"))
                     {
 
                     }
@@ -128,7 +155,7 @@ namespace ChalkBoard
             UserNameTextBox.Clear();
             PasswordTextBox.Clear();
             person = SchoolPerson.None;
-            UserType userType = new UserType();
+            userType = new UserType();
 
             this.Hide();
             userType.Show();

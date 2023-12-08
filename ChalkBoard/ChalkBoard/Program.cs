@@ -16,7 +16,8 @@ namespace ChalkBoard
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Info.dbConnection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\School\\Chalkboard\\ChalkBoardDatabase.accdb";
+            Info.dbConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\School\\Chalkboard\\ChalkBoardDatabase.accdb");
+            //Info.dbConnection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\School\\Chalkboard\\ChalkBoardDatabase.accdb";
             Info.dbConnection.Open();
             Application.Run(new UserType());
         }
@@ -24,10 +25,8 @@ namespace ChalkBoard
 
     internal class Info
     {
-        public static OleDbConnection dbConnection = new OleDbConnection();
-        public static DataTable studentDatatable;
-        public static DataTable teacherDatatable;
-        public static DataTable advisorDatatable;
+        public static OleDbConnection dbConnection;
+        public static DataTable datatable;
 
         //public static SchoolPerson;
     }
