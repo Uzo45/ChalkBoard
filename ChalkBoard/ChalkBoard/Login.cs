@@ -21,15 +21,15 @@ namespace ChalkBoard
         public Login()
         {
             InitializeComponent();
-            Info.studentDatatable.Clear();
-            Info.teacherDatatable.Clear();
-            Info.advisorDatatable.Clear();
+            //Info.studentDatatable.Clear();
+            //Info.teacherDatatable.Clear();
+            //Info.advisorDatatable.Clear();
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            dbConnection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\School\\Chalkboard\\ChalkBoardDatabase.accdb";
-            dbConnection.Open();
+            //dbConnection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\School\\Chalkboard\\ChalkBoardDatabase.accdb";
+            //dbConnection.Open();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -82,7 +82,12 @@ namespace ChalkBoard
                     }
                     else if(table.Equals("Teacher"))
                     {
+                        //make the information from the database public
+                        Info.studentDatatable = dataTable;
 
+                        //StudentMenuForm menuForm = new StudentMenuForm();
+                        //menuForm.Show();
+                        //this.Hide();
                     }
                     else if(table.Equals("Advisor"))
                     {
