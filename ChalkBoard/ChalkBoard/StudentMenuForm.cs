@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ChalkBoard
 {
@@ -14,14 +16,14 @@ namespace ChalkBoard
     {
         DataTable dataTable;
         DataRow row;
+        OleDbConnection dbConnection;
 
         public StudentMenuForm()
         {
             InitializeComponent();
-            ShowButtons(true);
+            dbConnection = Info.dbConnection;
             dataTable = Info.datatable;
             row = dataTable.Rows[0];
-            ProfileReady();
         }
 
         private void ShowButtons(bool show)
@@ -39,7 +41,9 @@ namespace ChalkBoard
 
         private void StudentMenuForm_Load(object sender, EventArgs e)
         {
+            ShowButtons(true);
             WelcomeText.Text = "Welcome, " + row["First Name"] + " " + row["Last Name"];
+            ProfileReady();
         }
 
         private void ProfileButton_Click(object sender, EventArgs e)
@@ -72,6 +76,18 @@ namespace ChalkBoard
             MajorText.Visible = show;
             ClassText.Visible = show;
             EmailText.Visible = show;
+        }
+
+        private void GradeReady()
+        {
+            String querry = "SELECT * FROM Student, Grade WHERE Student.StudentID = Grade.StudentID, AND Student.StudentID = " + row["StudentID"] + ";";
+            OleDbCommand command = new OleDbCommand(querry, dbConnection);
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+
+            DataTable dataTable = new DataTable();
+            DataSet dataSet = new DataSet();
+            dataSet.Tables.Add(dataTable);
+            adapter.Fill(dataTable);
         }
 
         private void LoginOff_Click(object sender, EventArgs e)
