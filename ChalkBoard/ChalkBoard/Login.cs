@@ -22,12 +22,11 @@ namespace ChalkBoard
         public Login()
         {
             InitializeComponent();
+            dbConnection = Info.dbConnection;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            dbConnection = Info.dbConnection;
-
             switch (person)
             {
                 case SchoolPerson.Student:
