@@ -1,6 +1,6 @@
 ﻿namespace ChalkBoard
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -36,6 +36,7 @@
             PasswordTextBox = new TextBox();
             LoginButton = new Button();
             ExitButton = new Button();
+            ClearButton = new Button();
             SuspendLayout();
             // 
             // Title
@@ -112,19 +113,33 @@
             ExitButton.BackColor = SystemColors.ActiveCaption;
             ExitButton.Font = new Font("Elephant", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             ExitButton.ForeColor = Color.Maroon;
-            ExitButton.Location = new Point(407, 436);
+            ExitButton.Location = new Point(439, 447);
             ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(111, 50);
+            ExitButton.Size = new Size(111, 51);
             ExitButton.TabIndex = 7;
             ExitButton.Text = "Exit";
             ExitButton.UseVisualStyleBackColor = false;
+            ExitButton.Click += ExitButton_Click;
             // 
-            // Form1
+            // ClearButton
+            // 
+            ClearButton.BackColor = SystemColors.ActiveCaption;
+            ClearButton.Font = new Font("Elephant", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            ClearButton.Location = new Point(357, 388);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(101, 39);
+            ClearButton.TabIndex = 8;
+            ClearButton.Text = "Clear";
+            ClearButton.UseVisualStyleBackColor = false;
+            ClearButton.Click += ClearButton_Click;
+            // 
+            // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(894, 539);
+            Controls.Add(ClearButton);
             Controls.Add(ExitButton);
             Controls.Add(LoginButton);
             Controls.Add(PasswordTextBox);
@@ -134,9 +149,9 @@
             Controls.Add(heading1);
             Controls.Add(Title);
             ForeColor = SystemColors.Info;
-            Name = "Form1";
+            Name = "Login";
             Text = "Chalkboard";
-            Load += Form1_Load;
+            Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -151,5 +166,6 @@
         private TextBox PasswordTextBox;
         private Button LoginButton;
         private Button ExitButton;
+        private Button ClearButton;
     }
 }
