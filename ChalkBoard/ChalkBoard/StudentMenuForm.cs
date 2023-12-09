@@ -18,6 +18,10 @@ namespace ChalkBoard
         DataRow row;
         OleDbConnection dbConnection;
 
+        //grade stuff
+        DataRow[] gradeRow;
+        Panel[] panels;
+
         public StudentMenuForm()
         {
             InitializeComponent();
@@ -88,6 +92,36 @@ namespace ChalkBoard
             DataSet dataSet = new DataSet();
             dataSet.Tables.Add(dataTable);
             adapter.Fill(dataTable);
+
+            gradeRow = dataTable.Select();
+            int length = gradeRow.Length;
+
+            if (length > 0)
+            {
+                panels = new Panel[length];
+                int leftControl = 1;
+                for (int i = 0; i < length; i++)
+                {
+                    panels[i] = new Panel();
+                    GradePanel.Controls.Add(panels[i]);
+                    //panels[i].Visible = false;
+                    //panels[i].Enabled = false;
+                    panels[i].Top = leftControl * 25;
+                    panels[i].Left = 26;
+                    panels[i].AutoSize = true;
+                    panels[i].Size = new Size(240, 70);
+                    leftControl++;
+                }
+            }
+            else
+            {
+                //TODO
+            }
+        }
+
+        private void ShowGrades(bool show)
+        {
+            //TODO
         }
 
         private void LoginOff_Click(object sender, EventArgs e)
