@@ -55,9 +55,9 @@ namespace ChalkBoard
         private void ProfileReady()
         {
             FnameText.Text += row["First Name"];
-            LnameText.Text += row["Last Name"]; 
-            MajorText.Text += row["Major"]; 
-            ClassText.Text += row["Classification"]; 
+            LnameText.Text += row["Last Name"];
+            MajorText.Text += row["Major"];
+            ClassText.Text += row["Classification"];
             EmailText.Text += row["Email"];
 
             //FnameText.ForeColor = Color.Yellow;

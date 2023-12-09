@@ -35,12 +35,13 @@
             LoginOff = new Button();
             Backbutton = new Button();
             CoverPanel = new Panel();
-            ProfileTitle = new Label();
-            FnameText = new Label();
-            LnameText = new Label();
-            MajorText = new Label();
-            ClassText = new Label();
             EmailText = new Label();
+            ClassText = new Label();
+            MajorText = new Label();
+            LnameText = new Label();
+            FnameText = new Label();
+            ProfileTitle = new Label();
+            panel1 = new Panel();
             CoverPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -115,8 +116,9 @@
             Backbutton.UseVisualStyleBackColor = false;
             Backbutton.Click += Backbutton_Click;
             // 
-            // ProfilePanel
+            // CoverPanel
             // 
+            CoverPanel.Controls.Add(panel1);
             CoverPanel.Controls.Add(EmailText);
             CoverPanel.Controls.Add(ClassText);
             CoverPanel.Controls.Add(MajorText);
@@ -126,58 +128,22 @@
             CoverPanel.Dock = DockStyle.Left;
             CoverPanel.Enabled = false;
             CoverPanel.Location = new Point(0, 0);
-            CoverPanel.Name = "ProfilePanel";
+            CoverPanel.Name = "CoverPanel";
             CoverPanel.Size = new Size(766, 539);
             CoverPanel.TabIndex = 14;
             CoverPanel.Visible = false;
             // 
-            // ProfileTitle
+            // EmailText
             // 
-            ProfileTitle.AutoSize = true;
-            ProfileTitle.Enabled = false;
-            ProfileTitle.Font = new Font("Elephant", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            ProfileTitle.Location = new Point(17, 14);
-            ProfileTitle.Name = "ProfileTitle";
-            ProfileTitle.Size = new Size(127, 38);
-            ProfileTitle.TabIndex = 0;
-            ProfileTitle.Text = "Profile";
-            ProfileTitle.Visible = false;
-            // 
-            // FnameText
-            // 
-            FnameText.AutoSize = true;
-            FnameText.Enabled = false;
-            FnameText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            FnameText.Location = new Point(26, 75);
-            FnameText.Name = "FnameText";
-            FnameText.Size = new Size(139, 31);
-            FnameText.TabIndex = 1;
-            FnameText.Text = "First Name: ";
-            FnameText.Visible = false;
-            // 
-            // LnameText
-            // 
-            LnameText.AutoSize = true;
-            LnameText.Enabled = false;
-            LnameText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            LnameText.Location = new Point(26, 121);
-            LnameText.Name = "LnameText";
-            LnameText.Size = new Size(135, 31);
-            LnameText.TabIndex = 2;
-            LnameText.Text = "Last Name: ";
-            LnameText.Visible = false;
-            // 
-            // MajorText
-            // 
-            MajorText.AutoSize = true;
-            MajorText.Enabled = false;
-            MajorText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            MajorText.Location = new Point(26, 171);
-            MajorText.Name = "MajorText";
-            MajorText.Size = new Size(89, 31);
-            MajorText.TabIndex = 3;
-            MajorText.Text = "Major: ";
-            MajorText.Visible = false;
+            EmailText.AutoSize = true;
+            EmailText.Enabled = false;
+            EmailText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            EmailText.Location = new Point(29, 264);
+            EmailText.Name = "EmailText";
+            EmailText.Size = new Size(82, 31);
+            EmailText.TabIndex = 5;
+            EmailText.Text = "Email: ";
+            EmailText.Visible = false;
             // 
             // ClassText
             // 
@@ -191,17 +157,61 @@
             ClassText.Text = "Classification: ";
             ClassText.Visible = false;
             // 
-            // EmailText
+            // MajorText
             // 
-            EmailText.AutoSize = true;
-            EmailText.Enabled = false;
-            EmailText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            EmailText.Location = new Point(29, 264);
-            EmailText.Name = "EmailText";
-            EmailText.Size = new Size(82, 31);
-            EmailText.TabIndex = 5;
-            EmailText.Text = "Email: ";
-            EmailText.Visible = false;
+            MajorText.AutoSize = true;
+            MajorText.Enabled = false;
+            MajorText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            MajorText.Location = new Point(26, 171);
+            MajorText.Name = "MajorText";
+            MajorText.Size = new Size(89, 31);
+            MajorText.TabIndex = 3;
+            MajorText.Text = "Major: ";
+            MajorText.Visible = false;
+            // 
+            // LnameText
+            // 
+            LnameText.AutoSize = true;
+            LnameText.Enabled = false;
+            LnameText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            LnameText.Location = new Point(26, 121);
+            LnameText.Name = "LnameText";
+            LnameText.Size = new Size(135, 31);
+            LnameText.TabIndex = 2;
+            LnameText.Text = "Last Name: ";
+            LnameText.Visible = false;
+            // 
+            // FnameText
+            // 
+            FnameText.AutoSize = true;
+            FnameText.Enabled = false;
+            FnameText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            FnameText.Location = new Point(26, 75);
+            FnameText.Name = "FnameText";
+            FnameText.Size = new Size(139, 31);
+            FnameText.TabIndex = 1;
+            FnameText.Text = "First Name: ";
+            FnameText.Visible = false;
+            // 
+            // ProfileTitle
+            // 
+            ProfileTitle.AutoSize = true;
+            ProfileTitle.Enabled = false;
+            ProfileTitle.Font = new Font("Elephant", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            ProfileTitle.Location = new Point(17, 14);
+            ProfileTitle.Name = "ProfileTitle";
+            ProfileTitle.Size = new Size(127, 38);
+            ProfileTitle.TabIndex = 0;
+            ProfileTitle.Text = "Profile";
+            ProfileTitle.Visible = false;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(766, 539);
+            panel1.TabIndex = 6;
+            panel1.Visible = false;
             // 
             // StudentMenuForm
             // 
@@ -242,5 +252,6 @@
         private Label MajorText;
         private Label EmailText;
         private Label ClassText;
+        private Panel panel1;
     }
 }
