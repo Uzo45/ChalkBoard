@@ -137,7 +137,7 @@
             CoverPanel.Enabled = false;
             CoverPanel.Location = new Point(0, 0);
             CoverPanel.Name = "CoverPanel";
-            CoverPanel.Size = new Size(766, 539);
+            CoverPanel.Size = new Size(740, 539);
             CoverPanel.TabIndex = 14;
             CoverPanel.Visible = false;
             // 
@@ -147,7 +147,7 @@
             GradePanel.Enabled = false;
             GradePanel.Location = new Point(0, 0);
             GradePanel.Name = "GradePanel";
-            GradePanel.Size = new Size(766, 539);
+            GradePanel.Size = new Size(740, 539);
             GradePanel.TabIndex = 6;
             GradePanel.Visible = false;
             // 

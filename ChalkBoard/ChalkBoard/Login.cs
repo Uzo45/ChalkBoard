@@ -117,7 +117,9 @@ namespace ChalkBoard
                     }
                     else if (table.Equals("Advisor"))
                     {
-
+                        AdvisorMenuForm menuForm = new AdvisorMenuForm();
+                        menuForm.Show();
+                        this.Hide();
                     }
                 }
                 else

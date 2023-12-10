@@ -98,9 +98,9 @@ namespace ChalkBoard
                     panels[i].Size = new Size(440, 100);
                     panels[i].BackColor = SystemColors.Menu;
 
-                    gradeInfos[i] = new GradeInfo();
+                    //gradeInfos[i] = new GradeInfo();
 
-                    gradeInfos[i].ClassLabel.Location = new Point()
+                    //gradeInfos[i].ClassLabel.Location = new Point();
                 }
             }
         }
