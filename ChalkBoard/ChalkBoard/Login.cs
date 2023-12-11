@@ -117,6 +117,8 @@ namespace ChalkBoard
                     }
                     else if (table.Equals("Advisor"))
                     {
+                        Info.datatable = dataTable;
+
                         AdvisorMenuForm menuForm = new AdvisorMenuForm();
                         menuForm.Show();
                         this.Hide();
