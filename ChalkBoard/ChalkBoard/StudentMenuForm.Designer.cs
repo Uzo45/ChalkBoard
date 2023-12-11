@@ -36,10 +36,13 @@
             Backbutton = new Button();
             CoverPanel = new Panel();
             GradePanel = new Panel();
-            panel2 = new Panel();
-            label3 = new Label();
-            label1 = new Label();
-            label2 = new Label();
+            AdvisorPanel = new Panel();
+            AEmail = new Label();
+            ALName = new Label();
+            PhoneNum = new Label();
+            AFName = new Label();
+            AdvisorTitle = new Label();
+            GPAtitle = new Label();
             EmailText = new Label();
             ClassText = new Label();
             MajorText = new Label();
@@ -48,16 +51,16 @@
             ProfileTitle = new Label();
             CoverPanel.SuspendLayout();
             GradePanel.SuspendLayout();
-            panel2.SuspendLayout();
+            AdvisorPanel.SuspendLayout();
             SuspendLayout();
             // 
             // WelcomeText
             // 
             WelcomeText.AutoSize = true;
             WelcomeText.Font = new Font("Elephant", 28.1999989F, FontStyle.Bold, GraphicsUnit.Point);
-            WelcomeText.Location = new Point(29, 35);
+            WelcomeText.Location = new Point(25, 26);
             WelcomeText.Name = "WelcomeText";
-            WelcomeText.Size = new Size(301, 60);
+            WelcomeText.Size = new Size(246, 49);
             WelcomeText.TabIndex = 1;
             WelcomeText.Text = "Welcome, _";
             WelcomeText.TextAlign = ContentAlignment.TopCenter;
@@ -66,9 +69,10 @@
             // 
             ProfileButton.BackColor = Color.SteelBlue;
             ProfileButton.Font = new Font("Elephant", 23.9999981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            ProfileButton.Location = new Point(176, 171);
+            ProfileButton.Location = new Point(154, 128);
+            ProfileButton.Margin = new Padding(3, 2, 3, 2);
             ProfileButton.Name = "ProfileButton";
-            ProfileButton.Size = new Size(210, 148);
+            ProfileButton.Size = new Size(184, 111);
             ProfileButton.TabIndex = 7;
             ProfileButton.Text = "Profile";
             ProfileButton.UseVisualStyleBackColor = false;
@@ -78,9 +82,10 @@
             // 
             ShowGradeButton.BackColor = Color.SteelBlue;
             ShowGradeButton.Font = new Font("Elephant", 23.9999981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            ShowGradeButton.Location = new Point(467, 171);
+            ShowGradeButton.Location = new Point(409, 128);
+            ShowGradeButton.Margin = new Padding(3, 2, 3, 2);
             ShowGradeButton.Name = "ShowGradeButton";
-            ShowGradeButton.Size = new Size(210, 148);
+            ShowGradeButton.Size = new Size(184, 111);
             ShowGradeButton.TabIndex = 8;
             ShowGradeButton.Text = "Grades";
             ShowGradeButton.UseVisualStyleBackColor = false;
@@ -90,9 +95,10 @@
             // 
             AdvisorButton.BackColor = Color.SteelBlue;
             AdvisorButton.Font = new Font("Elephant", 23.9999981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            AdvisorButton.Location = new Point(322, 353);
+            AdvisorButton.Location = new Point(282, 265);
+            AdvisorButton.Margin = new Padding(3, 2, 3, 2);
             AdvisorButton.Name = "AdvisorButton";
-            AdvisorButton.Size = new Size(210, 148);
+            AdvisorButton.Size = new Size(184, 111);
             AdvisorButton.TabIndex = 10;
             AdvisorButton.Text = "Advisor";
             AdvisorButton.UseVisualStyleBackColor = false;
@@ -103,9 +109,10 @@
             LoginOff.BackColor = SystemColors.ActiveCaption;
             LoginOff.Font = new Font("Elephant", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             LoginOff.ForeColor = Color.Maroon;
-            LoginOff.Location = new Point(771, 476);
+            LoginOff.Location = new Point(675, 357);
+            LoginOff.Margin = new Padding(3, 2, 3, 2);
             LoginOff.Name = "LoginOff";
-            LoginOff.Size = new Size(111, 51);
+            LoginOff.Size = new Size(97, 38);
             LoginOff.TabIndex = 11;
             LoginOff.Text = "Log Off";
             LoginOff.UseVisualStyleBackColor = false;
@@ -116,9 +123,10 @@
             Backbutton.BackColor = SystemColors.ActiveCaption;
             Backbutton.Font = new Font("Elephant", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             Backbutton.ForeColor = Color.Maroon;
-            Backbutton.Location = new Point(799, 419);
+            Backbutton.Location = new Point(699, 314);
+            Backbutton.Margin = new Padding(3, 2, 3, 2);
             Backbutton.Name = "Backbutton";
-            Backbutton.Size = new Size(83, 51);
+            Backbutton.Size = new Size(73, 38);
             Backbutton.TabIndex = 13;
             Backbutton.Text = "Back";
             Backbutton.UseVisualStyleBackColor = false;
@@ -136,83 +144,108 @@
             CoverPanel.Dock = DockStyle.Left;
             CoverPanel.Enabled = false;
             CoverPanel.Location = new Point(0, 0);
+            CoverPanel.Margin = new Padding(3, 2, 3, 2);
             CoverPanel.Name = "CoverPanel";
-            CoverPanel.Size = new Size(766, 539);
+            CoverPanel.Size = new Size(670, 404);
             CoverPanel.TabIndex = 14;
             CoverPanel.Visible = false;
             // 
             // GradePanel
             // 
-            GradePanel.Controls.Add(panel2);
+            GradePanel.Controls.Add(AdvisorPanel);
+            GradePanel.Controls.Add(GPAtitle);
             GradePanel.Enabled = false;
             GradePanel.Location = new Point(0, 0);
+            GradePanel.Margin = new Padding(3, 2, 3, 2);
             GradePanel.Name = "GradePanel";
-            GradePanel.Size = new Size(766, 539);
+            GradePanel.Size = new Size(670, 404);
             GradePanel.TabIndex = 6;
             GradePanel.Visible = false;
             // 
-            // panel2
+            // AdvisorPanel
             // 
-            panel2.AutoSize = true;
-            panel2.BackColor = SystemColors.Menu;
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label2);
-            panel2.Enabled = false;
-            panel2.Location = new Point(26, 25);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(440, 100);
-            panel2.TabIndex = 0;
-            panel2.Visible = false;
+            AdvisorPanel.Controls.Add(AEmail);
+            AdvisorPanel.Controls.Add(ALName);
+            AdvisorPanel.Controls.Add(PhoneNum);
+            AdvisorPanel.Controls.Add(AFName);
+            AdvisorPanel.Controls.Add(AdvisorTitle);
+            AdvisorPanel.Dock = DockStyle.Left;
+            AdvisorPanel.Enabled = false;
+            AdvisorPanel.Location = new Point(0, 0);
+            AdvisorPanel.Margin = new Padding(3, 2, 3, 2);
+            AdvisorPanel.Name = "AdvisorPanel";
+            AdvisorPanel.Size = new Size(670, 404);
+            AdvisorPanel.TabIndex = 15;
+            AdvisorPanel.Visible = false;
             // 
-            // label3
+            // AEmail
             // 
-            label3.AutoSize = true;
-            label3.Enabled = false;
-            label3.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = SystemColors.ControlText;
-            label3.Location = new Point(347, 29);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 41);
-            label3.TabIndex = 2;
-            label3.Text = "A";
-            label3.Visible = false;
+            AEmail.AutoSize = true;
+            AEmail.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            AEmail.Location = new Point(25, 128);
+            AEmail.Name = "AEmail";
+            AEmail.Size = new Size(69, 25);
+            AEmail.TabIndex = 8;
+            AEmail.Text = "Email: ";
             // 
-            // label1
+            // ALName
             // 
-            label1.AutoSize = true;
-            label1.Enabled = false;
-            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(16, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Class: ";
-            label1.Visible = false;
+            ALName.AutoSize = true;
+            ALName.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ALName.Location = new Point(23, 91);
+            ALName.Name = "ALName";
+            ALName.Size = new Size(113, 25);
+            ALName.TabIndex = 7;
+            ALName.Text = "Last Name: ";
             // 
-            // label2
+            // PhoneNum
             // 
-            label2.AutoSize = true;
-            label2.Enabled = false;
-            label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.ControlText;
-            label2.Location = new Point(16, 47);
-            label2.Name = "label2";
-            label2.Size = new Size(78, 23);
-            label2.TabIndex = 1;
-            label2.Text = "Teacher: ";
-            label2.Visible = false;
+            PhoneNum.AutoSize = true;
+            PhoneNum.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            PhoneNum.Location = new Point(25, 164);
+            PhoneNum.Name = "PhoneNum";
+            PhoneNum.Size = new Size(153, 25);
+            PhoneNum.TabIndex = 6;
+            PhoneNum.Text = "Phone Number: ";
+            // 
+            // AFName
+            // 
+            AFName.AutoSize = true;
+            AFName.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            AFName.Location = new Point(23, 56);
+            AFName.Name = "AFName";
+            AFName.Size = new Size(116, 25);
+            AFName.TabIndex = 1;
+            AFName.Text = "First Name: ";
+            // 
+            // AdvisorTitle
+            // 
+            AdvisorTitle.AutoSize = true;
+            AdvisorTitle.Font = new Font("Elephant", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            AdvisorTitle.Location = new Point(15, 10);
+            AdvisorTitle.Name = "AdvisorTitle";
+            AdvisorTitle.Size = new Size(183, 31);
+            AdvisorTitle.TabIndex = 0;
+            AdvisorTitle.Text = "Your Advisor";
+            // 
+            // GPAtitle
+            // 
+            GPAtitle.AutoSize = true;
+            GPAtitle.Font = new Font("Elephant", 22.1999989F, FontStyle.Regular, GraphicsUnit.Point);
+            GPAtitle.Location = new Point(349, 26);
+            GPAtitle.Name = "GPAtitle";
+            GPAtitle.Size = new Size(106, 38);
+            GPAtitle.TabIndex = 1;
+            GPAtitle.Text = "GPA: ";
             // 
             // EmailText
             // 
             EmailText.AutoSize = true;
             EmailText.Enabled = false;
             EmailText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            EmailText.Location = new Point(29, 264);
+            EmailText.Location = new Point(25, 198);
             EmailText.Name = "EmailText";
-            EmailText.Size = new Size(82, 31);
+            EmailText.Size = new Size(69, 25);
             EmailText.TabIndex = 5;
             EmailText.Text = "Email: ";
             EmailText.Visible = false;
@@ -222,9 +255,9 @@
             ClassText.AutoSize = true;
             ClassText.Enabled = false;
             ClassText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            ClassText.Location = new Point(26, 219);
+            ClassText.Location = new Point(23, 164);
             ClassText.Name = "ClassText";
-            ClassText.Size = new Size(162, 31);
+            ClassText.Size = new Size(135, 25);
             ClassText.TabIndex = 4;
             ClassText.Text = "Classification: ";
             ClassText.Visible = false;
@@ -234,9 +267,9 @@
             MajorText.AutoSize = true;
             MajorText.Enabled = false;
             MajorText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            MajorText.Location = new Point(26, 171);
+            MajorText.Location = new Point(23, 128);
             MajorText.Name = "MajorText";
-            MajorText.Size = new Size(89, 31);
+            MajorText.Size = new Size(74, 25);
             MajorText.TabIndex = 3;
             MajorText.Text = "Major: ";
             MajorText.Visible = false;
@@ -246,9 +279,9 @@
             LnameText.AutoSize = true;
             LnameText.Enabled = false;
             LnameText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            LnameText.Location = new Point(26, 121);
+            LnameText.Location = new Point(23, 91);
             LnameText.Name = "LnameText";
-            LnameText.Size = new Size(135, 31);
+            LnameText.Size = new Size(113, 25);
             LnameText.TabIndex = 2;
             LnameText.Text = "Last Name: ";
             LnameText.Visible = false;
@@ -258,9 +291,9 @@
             FnameText.AutoSize = true;
             FnameText.Enabled = false;
             FnameText.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            FnameText.Location = new Point(26, 75);
+            FnameText.Location = new Point(23, 56);
             FnameText.Name = "FnameText";
-            FnameText.Size = new Size(139, 31);
+            FnameText.Size = new Size(116, 25);
             FnameText.TabIndex = 1;
             FnameText.Text = "First Name: ";
             FnameText.Visible = false;
@@ -270,19 +303,19 @@
             ProfileTitle.AutoSize = true;
             ProfileTitle.Enabled = false;
             ProfileTitle.Font = new Font("Elephant", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            ProfileTitle.Location = new Point(17, 13);
+            ProfileTitle.Location = new Point(15, 10);
             ProfileTitle.Name = "ProfileTitle";
-            ProfileTitle.Size = new Size(127, 38);
+            ProfileTitle.Size = new Size(105, 31);
             ProfileTitle.TabIndex = 0;
             ProfileTitle.Text = "Profile";
             ProfileTitle.Visible = false;
             // 
             // StudentMenuForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            ClientSize = new Size(894, 539);
+            ClientSize = new Size(782, 404);
             Controls.Add(CoverPanel);
             Controls.Add(Backbutton);
             Controls.Add(LoginOff);
@@ -291,7 +324,6 @@
             Controls.Add(ProfileButton);
             Controls.Add(WelcomeText);
             ForeColor = SystemColors.Info;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "StudentMenuForm";
             Text = "MainMenu";
             Load += StudentMenuForm_Load;
@@ -299,8 +331,8 @@
             CoverPanel.PerformLayout();
             GradePanel.ResumeLayout(false);
             GradePanel.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            AdvisorPanel.ResumeLayout(false);
+            AdvisorPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -321,9 +353,16 @@
         private Label EmailText;
         private Label ClassText;
         private Panel GradePanel;
-        private Panel panel2;
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private Label GPAtitle;
+        private Panel AdvisorPanel;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label AFName;
+        private Label AdvisorTitle;
+        private Label PhoneNum;
+        private Label AEmail;
+        private Label ALName;
     }
 }

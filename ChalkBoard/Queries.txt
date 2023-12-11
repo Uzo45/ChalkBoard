@@ -1,0 +1,14 @@
+Queries
+
+"SELECT Grade.StudentID, Grade, CourseName, Teacher.LastName
+	FROM Student, Grade, Class, Teacher, Course
+	WHERE Student.StudentID = Grade.StudentID 
+	AND Grade.ClassID = Class.ClassID
+	AND Class.TeacherID = Teacher.TeacherID
+	AND Class.CourseID = Course.CourseID
+	AND Student.StudentID = " + row["StudentID"]
+
+"SELECT Advisor.FirstName, Advisor.LastName, Advisor.Email, PhoneNumber
+	FROM Student, Advisor
+	WHERE Student.AdvisorID = Advisor.AdvisorID
+	AND Advisor.AdvisorID = " + row["AdvisorID"]
