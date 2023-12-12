@@ -118,7 +118,7 @@
             ProfilePanel.Enabled = false;
             ProfilePanel.Location = new Point(-2, 12);
             ProfilePanel.Name = "ProfilePanel";
-            ProfilePanel.Size = new Size(868, 426);
+            ProfilePanel.Size = new Size(847, 426);
             ProfilePanel.TabIndex = 4;
             ProfilePanel.Visible = false;
             // 
@@ -129,7 +129,7 @@
             ListPanel.Controls.Add(StudentListTitle);
             ListPanel.Location = new Point(3, -13);
             ListPanel.Name = "ListPanel";
-            ListPanel.Size = new Size(834, 481);
+            ListPanel.Size = new Size(912, 481);
             ListPanel.TabIndex = 12;
             ListPanel.Visible = false;
             // 
@@ -321,7 +321,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            ClientSize = new Size(878, 481);
+            ClientSize = new Size(925, 481);
             Controls.Add(ProfilePanel);
             Controls.Add(LogOutButton);
             Controls.Add(studentListButton);
