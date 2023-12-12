@@ -138,7 +138,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            ClientSize = new Size(894, 539);
+            ClientSize = new Size(1003, 539);
             Controls.Add(ClearButton);
             Controls.Add(ExitButton);
             Controls.Add(LoginButton);
