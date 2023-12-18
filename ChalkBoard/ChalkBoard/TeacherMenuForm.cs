@@ -43,6 +43,8 @@ namespace ChalkBoard
 
         private void ShowButtons(bool show)
         {
+            TeacherWelcome.Visible = show;
+            TeacherWelcome.Enabled = show;
             ProfileButton.Visible = show;
             ProfileButton.Enabled = show;
             ClassListButton.Visible = show;
@@ -75,13 +77,13 @@ namespace ChalkBoard
             LastName.Visible = show;
             Email.Enabled = show;
             Email.Visible = show;
-            ProfileButton.Enabled = show;
-            ProfileButton.Visible = show;
+            //ProfileButton.Enabled = show;
+            //ProfileButton.Visible = show;
 
             backButton1.Enabled = show;
             backButton1.Visible = show;
-            LogOffButton1.Enabled = show;
-            LogOffButton1.Visible = show;
+            LogOffButton2.Enabled = show;
+            LogOffButton2.Visible = show;
         }
 
         private void ProfileButton_Click(object sender, EventArgs e)
@@ -93,7 +95,7 @@ namespace ChalkBoard
         //Class List
         private void ClassListReady()
         {
-            String querry = "SELECT Class.CourseID, CourseName, Time, COUNT(StudentID) as NumStudents FROM Class, CourseName, Grade WHERE Class.CourseID = Course.CourseID AND Class.ClassID = Grade.ClassID AND TeacherID = " + row["TeacherID"] +" GROUP BY Class.CourseID, CourseName, Time";
+            String querry = "SELECT Class.CourseID, CourseName, Time, COUNT(StudentID) AS NumStudents FROM Class, Course, Grade WHERE Class.CourseID = Course.CourseID AND Class.ClassID = Grade.ClassID AND TeacherID = " + row["TeacherID"] + " GROUP BY Class.CourseID, CourseName, Time";
             OleDbCommand command = new OleDbCommand(querry, dbConnection);
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
 
@@ -143,15 +145,18 @@ namespace ChalkBoard
             ShowButtons(false);
         }
 
+        //extra buttons
         private void backButton1_Click(object sender, EventArgs e)
         {
             ShowButtons(true);
             ShowProfile(false);
+            ShowClassList(false);
         }
 
         private void backButton2_Click(object sender, EventArgs e)
         {
             ShowButtons(true);
+            ShowProfile(false);
             ShowClassList(false);
         }
 
@@ -210,9 +215,12 @@ namespace ChalkBoard
             public void SetText(DataRow dataRow)
             {
                 Course.Text = dataRow["CourseName"].ToString();
-                ID.Text = dataRow["ClassID"].ToString();
+                ID.Text = dataRow["CourseID"].ToString();
                 Time.Text = dataRow["Time"].ToString();
                 numStudents.Text = dataRow["NumStudents"].ToString();
+
+                Course.AutoSize = true;
+                Time.AutoSize = true;
             }
 
             public void SetControl(TableLayoutPanel table, int yPosition)

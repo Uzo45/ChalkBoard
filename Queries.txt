@@ -12,3 +12,10 @@ Queries
 	FROM Student, Advisor
 	WHERE Student.AdvisorID = Advisor.AdvisorID
 	AND Advisor.AdvisorID = " + row["AdvisorID"]
+
+"SELECT Class.CourseID, CourseName, Time, COUNT(StudentID) AS NumStudents 
+	FROM Class, Course, Grade 
+	WHERE Class.CourseID = Course.CourseID 
+	AND Class.ClassID = Grade.ClassID 
+	AND TeacherID = " + row["TeacherID"] +" 
+	GROUP BY Class.CourseID, CourseName, Time"
