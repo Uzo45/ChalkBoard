@@ -91,7 +91,7 @@ namespace ChalkBoard
         //Grades
         private void GradeReady()
         {
-            String querry = "SELECT Grade.StudentID, Grade, CourseName, Teacher.LastName FROM Student, Grade, Class, Teacher, Course WHERE Student.StudentID = Grade.StudentID AND Grade.ClassID = Class.ClassID AND Class.TeacherID = Teacher.TeacherID AND Class.CourseID = Course.CourseID AND Student.StudentID = " + studentRow["StudentID"];
+            String querry = "SELECT Grade.StudentID, Grade, CourseName, Credits, Teacher.LastName FROM Student, Grade, Class, Teacher, Course WHERE Student.StudentID = Grade.StudentID AND Grade.ClassID = Class.ClassID AND Class.TeacherID = Teacher.TeacherID AND Class.CourseID = Course.CourseID AND Student.StudentID = " + studentRow["StudentID"];
             OleDbCommand command = new OleDbCommand(querry, dbConnection);
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
 
@@ -107,6 +107,7 @@ namespace ChalkBoard
             {
                 panels = new Panel[gradelength];
                 gradeInfos = new GradeInfo[gradelength];
+                int Allcredits = 0;
                 for (int i = 0; i < gradelength; i++)
                 {
                     panels[i] = new Panel();
@@ -120,9 +121,10 @@ namespace ChalkBoard
                     gradeInfos[i] = new GradeInfo();
                     gradeInfos[i].SetText("" + gradeRow[i]["CourseName"], "" + gradeRow[i]["LastName"], "" + gradeRow[i]["Grade"]);
                     gradeInfos[i].SetLocation(panels[i]);
-                    CalculateGrade("" + gradeRow[i]["Grade"]);
+                    Allcredits += Int32.Parse("" + gradeRow[i]["Credits"]);
+                    CalculateGrade("" + gradeRow[i]["Grade"], Int32.Parse("" + gradeRow[i]["Credits"]));
                 }
-                ave = (float)sum / gradelength;
+                ave = (float)sum / Allcredits;
             }
             else
             {
@@ -153,21 +155,21 @@ namespace ChalkBoard
             }
         }
 
-        private void CalculateGrade(string grade)
+        private void CalculateGrade(string grade, int credits)
         {
             switch (grade)
             {
                 case "A":
-                    sum += 4;
+                    sum += 4 * credits;
                     break;
                 case "B":
-                    sum += 3;
+                    sum += 3 * credits;
                     break;
                 case "C":
-                    sum += 2;
+                    sum += 2 * credits;
                     break;
                 case "D":
-                    sum += 1;
+                    sum += 1 * credits;
                     break;
                 default:
                     sum += 0;

@@ -111,9 +111,9 @@ namespace ChalkBoard
                         //make the information from the database public
                         Info.datatable = dataTable;
 
-                        //StudentMenuForm menuForm = new StudentMenuForm();
-                        //menuForm.Show();
-                        //this.Hide();
+                        TeacherMenuForm menuForm = new TeacherMenuForm();
+                        menuForm.Show();
+                        this.Hide();
                     }
                     else if (table.Equals("Advisor"))
                     {

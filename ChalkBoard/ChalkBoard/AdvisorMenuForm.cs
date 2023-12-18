@@ -126,7 +126,6 @@ namespace ChalkBoard
                     listTable1.RowCount++;
                     studentInfos[i].SetText(listRow[i]);
                     studentInfos[i].SetControl(listTable1, i + 1);
-                    listTable1.SetRowSpan()
                 }
 
             }
